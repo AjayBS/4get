@@ -16,19 +16,24 @@ public class TileButtons : MonoBehaviour {
 
     // Update is called once per frame
     void Update()
-    {        
-            // Debug.Log("Hello");
-            //    if (Input.GetMouseButtonDown(0))        {
-
-            //        RaycastHit2D hit = Physics2D.Raycast(transform.position,-Vector2.up);
-
-            //        if (hit.collider != null && hit.collider.gameObject.tag == "Tiles")
-            //        {
-            //            Debug.Log("This is a tile click");
-            //        }
-            //    }
-            //}
-        }    
+    {
+        for (int i = 0; i < empty_tile.Length; i++)
+        {
+            bool isEmptyTile = true;
+            for (int j = 0; j < tiles.Length; j++)
+            {
+                if (empty_tile[i].transform.position.x == tiles[j].transform.position.x)
+                {
+                    empty_tile[i].GetComponent<EmptyTileObjects>().filled = true;
+                    isEmptyTile = false;
+                }
+            }
+            if (isEmptyTile)
+            {
+                empty_tile[i].GetComponent<EmptyTileObjects>().filled = false;
+            }
+        }
+    }    
 
     void OnMouseDown()
     {

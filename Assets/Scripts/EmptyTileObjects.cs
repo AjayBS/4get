@@ -13,8 +13,8 @@ public class EmptyTileObjects : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
-	}
+        
+    }
 
     void OnMouseDown()
     {
@@ -27,13 +27,13 @@ public class EmptyTileObjects : MonoBehaviour {
             }
             else
             {
-                empty_tiles[i].GetComponent<EmptyTileObjects>().selected=false;
+                empty_tiles[i].GetComponent<EmptyTileObjects>().selected = false;
                // empty_tiles[i].GetComponent('').VariableName selected = false;
                 empty_tiles[i].transform.localScale = new Vector3(1f, 1f, 0);
             }
         }
         
-        Debug.Log("This is a tile click "+ name);
+        Debug.Log("This is asa tile click "+ name);
        // transform.position = position;
     }
 }
