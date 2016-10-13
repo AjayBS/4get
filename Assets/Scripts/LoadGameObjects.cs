@@ -10,7 +10,6 @@ public class LoadGameObjects : MonoBehaviour {
 
     public GameObject empty_tiles;
     public GameObject alphabet_tiles;
-
     void Start () {
 
 

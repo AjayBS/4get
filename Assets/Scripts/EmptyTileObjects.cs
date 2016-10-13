@@ -3,7 +3,8 @@ using System.Collections;
 
 public class EmptyTileObjects : MonoBehaviour {
 
-    bool selected = false;
+    public bool selected = false;
+    public bool filled = false;
     public GameObject[] empty_tiles;
     // Use this for initialization
     void Start () {
@@ -22,10 +23,12 @@ public class EmptyTileObjects : MonoBehaviour {
             if(empty_tiles[i].name.Equals(name))
             {
                 transform.localScale = new Vector3(1.2f, 1.2f, 0);
-                selected = true;
+                empty_tiles[i].GetComponent<EmptyTileObjects>().selected = true;
             }
             else
             {
+                empty_tiles[i].GetComponent<EmptyTileObjects>().selected=false;
+               // empty_tiles[i].GetComponent('').VariableName selected = false;
                 empty_tiles[i].transform.localScale = new Vector3(1f, 1f, 0);
             }
         }
