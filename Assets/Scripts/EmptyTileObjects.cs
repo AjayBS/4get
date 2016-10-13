@@ -4,7 +4,7 @@ using System.Collections;
 public class EmptyTileObjects : MonoBehaviour {
 
     public bool selected = false;
-    public bool filled = false;
+    public bool isEmpty = false;
     public GameObject[] empty_tiles;
     // Use this for initialization
     void Start () {

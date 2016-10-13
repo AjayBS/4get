@@ -10,7 +10,6 @@ public class TileButtons : MonoBehaviour {
     // Use this for initialization
     void Start () {
         empty_tile = GameObject.FindGameObjectsWithTag("Empty_Tiles");
-        if (tiles == null)
             tiles = GameObject.FindGameObjectsWithTag("Tiles");
     }
 
@@ -22,28 +21,26 @@ public class TileButtons : MonoBehaviour {
             bool isEmptyTile = true;
             for (int j = 0; j < tiles.Length; j++)
             {
-                if (empty_tile[i].transform.position.x == tiles[j].transform.position.x)
+                if (empty_tile[i].transform.position.x == tiles[j].transform.position.x && empty_tile[i].transform.position.y == tiles[j].transform.position.y)
                 {
-                    empty_tile[i].GetComponent<EmptyTileObjects>().filled = true;
+                    empty_tile[i].GetComponent<EmptyTileObjects>().isEmpty = false;
                     isEmptyTile = false;
                 }
             }
             if (isEmptyTile)
             {
-                empty_tile[i].GetComponent<EmptyTileObjects>().filled = false;
+                empty_tile[i].GetComponent<EmptyTileObjects>().isEmpty = true;
             }
         }
     }    
 
     void OnMouseDown()
-    {
-        
+    {        
         for(int i=0;i<empty_tile.Length;i++)
         {
-            if (empty_tile[i].GetComponent<EmptyTileObjects>().selected == true && !empty_tile[i].GetComponent<EmptyTileObjects>().filled)
-            {
-                empty_tile[i].GetComponent<EmptyTileObjects>().filled = true;
-                transform.position = empty_tile[i].transform.position;
+            if (empty_tile[i].GetComponent<EmptyTileObjects>().selected == true && empty_tile[i].GetComponent<EmptyTileObjects>().isEmpty)
+            {                
+                TileMoved(empty_tile[i]);
                 assigned = true;
             }
         }
@@ -56,5 +53,11 @@ public class TileButtons : MonoBehaviour {
         //}
 
         
+    }
+
+    void TileMoved(GameObject empty_tile)
+    {
+        empty_tile.GetComponent<EmptyTileObjects>().isEmpty = false;
+        transform.position = empty_tile.transform.position;
     }
 }
