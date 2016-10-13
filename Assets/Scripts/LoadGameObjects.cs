@@ -10,8 +10,29 @@ public class LoadGameObjects : MonoBehaviour {
 
     public GameObject empty_tiles;
     public GameObject alphabet_tiles;
+    public GameObject[] tiles;
+    public Texture2D texture;
+    Sprite[] sprites;
+    Sprite differentAlphabet;
+   
     void Start () {
 
+        tiles = GameObject.FindGameObjectsWithTag("Tiles");
+        for (int j = 0; j < tiles.Length; j++)
+        {
+            tiles[j].GetComponent<SpriteRenderer>().sprite = sprites[j];
+        }
+    }
+	
+	// Update is called once per frame
+	void Update () {
+	
+	}
+
+    void Awake()
+    {
+        sprites = Resources.LoadAll<Sprite>(texture.name);
+       // differentAlphabet = Resources.Load<Sprite>("Tiles-Sprite_0");
 
         for (int y = -2; y < -1; y++)
         {
@@ -33,28 +54,19 @@ public class LoadGameObjects : MonoBehaviour {
                 tempTile.name = "EmptyTile" + x;
             }
         }
-    }
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+            //GameObject go = new GameObject();
+            //SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
 
-    void Awake()
-    {
-        //GameObject go = new GameObject();
-        //SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
-
-        //renderer.sprites[] = Resources.Load("Sprites/Player", typeof(Sprite)) as Sprite;
+            //renderer.sprites[] = Resources.Load("Sprites/Player", typeof(Sprite)) as Sprite;
 
 
 
-        //Sprite[] sprites;
-        //sprites = Resources.LoadAll<Sprite>("Tiles-Sprite");
-        //sprites[0].transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
-        //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
-        //if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-        //    spriteRenderer.sprite = sprites[0];
-        //Debug.Log(sprites.Length);
-    }
+            //Sprite[] sprites;
+            //sprites = Resources.LoadAll<Sprite>("Tiles-Sprite");
+            //sprites[0].transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
+            //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
+            //if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
+            //    spriteRenderer.sprite = sprites[0];
+            //Debug.Log(sprites.Length);
+        }
 }

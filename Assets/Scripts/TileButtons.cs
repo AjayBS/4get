@@ -5,12 +5,11 @@ public class TileButtons : MonoBehaviour {
 
     GameObject[] empty_tile;
     public GameObject[] tiles;
-    Vector3 position;
     public bool assigned;
     // Use this for initialization
     void Start () {
         empty_tile = GameObject.FindGameObjectsWithTag("Empty_Tiles");
-            tiles = GameObject.FindGameObjectsWithTag("Tiles");
+        tiles = GameObject.FindGameObjectsWithTag("Tiles");
     }
 
     // Update is called once per frame
@@ -43,9 +42,19 @@ public class TileButtons : MonoBehaviour {
                 TileMoved(empty_tile[i]);
                 assigned = true;
             }
+            else if(empty_tile[i].GetComponent<EmptyTileObjects>().selected == true && !empty_tile[i].GetComponent<EmptyTileObjects>().isEmpty)
+            {
+                for(int j=0;j<tiles.Length;j++)
+                {
+                    if (empty_tile[i].transform.position.x == tiles[j].transform.position.x && empty_tile[i].transform.position.y == tiles[j].transform.position.y)
+                    {
+                        ReplaceTiles(tiles[j],empty_tile[i]);
+                        assigned = true;
+                    }
+                    }
+            }
         }
         
-        Debug.Log("This is a tile click"+ position);
         //if (transform.position!=position)
         //{
         //    assigned = true;
@@ -58,6 +67,13 @@ public class TileButtons : MonoBehaviour {
     void TileMoved(GameObject empty_tile)
     {
         empty_tile.GetComponent<EmptyTileObjects>().isEmpty = false;
+        transform.position = empty_tile.transform.position;
+    }
+
+    void ReplaceTiles(GameObject tile,GameObject empty_tile)
+    {
+        empty_tile.GetComponent<EmptyTileObjects>().isEmpty = false;
+        tile.transform.position = transform.position;
         transform.position = empty_tile.transform.position;
     }
 }
