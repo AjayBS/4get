@@ -21,6 +21,7 @@ GameObject:
   - 4: {fileID: 4000012083809340}
   - 212: {fileID: 212000012052737714}
   - 60: {fileID: 60000010067073396}
+  - 114: {fileID: 114000010778059020}
   m_Layer: 0
   m_Name: EmptyTiles
   m_TagString: Empty_Tiles
@@ -59,6 +60,17 @@ PolygonCollider2D:
       - {x: -0.42499998, y: -0.48}
       - {x: 0.42499998, y: -0.48}
       - {x: 0.42499998, y: 0.48}
+--- !u!114 &114000010778059020
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000010446777390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b223e4d1504b84943b075715b52fc113, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212000012052737714
 SpriteRenderer:
   m_ObjectHideFlags: 1
