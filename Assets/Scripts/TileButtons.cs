@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class TileButtons : MonoBehaviour {
 
-    GameObject empty_tile;
+    GameObject[] empty_tile;
     public GameObject[] tiles;
     Vector3 position;
     // Use this for initialization
     void Start () {
-        empty_tile = GameObject.FindGameObjectWithTag("Empty_Tiles");
+        empty_tile = GameObject.FindGameObjectsWithTag("Empty_Tiles");
         if (tiles == null)
             tiles = GameObject.FindGameObjectsWithTag("Tiles");
     }
@@ -31,8 +31,22 @@ public class TileButtons : MonoBehaviour {
 
     void OnMouseDown()
     {
-        position=empty_tile.transform.position;
+        
+        for(int i=0;i<empty_tile.Length;i++)
+        {
+            if (empty_tile[i].transform.localScale.x == 1.2f)
+            {
+               
+                    position = empty_tile[i].transform.position;
+               
+           }
+        }
+        
         Debug.Log("This is a tile click"+ position);
-        transform.position = position;
+        if (transform.position!=position)
+        {
+            transform.position = position;
+        }
+        
     }
 }

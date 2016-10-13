@@ -8,16 +8,30 @@ public class LoadGameObjects : MonoBehaviour {
     // Use this for initialization
 
 
-    public GameObject brick;
-    
+    public GameObject empty_tiles;
+    public GameObject alphabet_tiles;
+
     void Start () {
+
+
+        for (int y = -2; y < -1; y++)
+        {
+            for (int x = -2; x < 3; x++)
+            {
+                GameObject tempTile;
+                tempTile = Instantiate(alphabet_tiles, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+                tempTile.name = "AlphabetTile" + x;
+
+            }
+        }
+
         for (int y = 0; y < 1; y++)
         {
             for (int x = -2; x < 3; x++)
             {
-                GameObject tempBrick;
-                tempBrick = Instantiate(brick, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
-                tempBrick.name = "Brick" + x;
+                GameObject tempTile;
+                tempTile = Instantiate(empty_tiles, new Vector3(x, y, 0), Quaternion.identity) as GameObject;
+                tempTile.name = "EmptyTile" + x;
             }
         }
     }
