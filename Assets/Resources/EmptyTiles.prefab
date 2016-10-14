@@ -71,6 +71,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b223e4d1504b84943b075715b52fc113, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected: 0
+  isEmpty: 0
+  empty_tiles: []
 --- !u!212 &212000012052737714
 SpriteRenderer:
   m_ObjectHideFlags: 1

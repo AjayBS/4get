@@ -233,7 +233,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 988924061}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -268,7 +268,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1666288211
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d5c58d368fb80ac4e8a2e0a9b8e75ab3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5053a20c788d8b64da208f68678e261a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -316,6 +316,9 @@ MonoBehaviour:
     type: 2}
   alphabet_tiles: {fileID: 1000010049885300, guid: 25de21e0dad6237408027a93052d9892,
     type: 2}
+  tiles: []
+  texture: {fileID: 2800000, guid: 8e9e4c1afae86cf4bac89a3291642514, type: 3}
+  picture: {fileID: 1000013924917422, guid: 92b7bd06eba4d244c84f5ac9e208711b, type: 2}
 --- !u!1 &1891826801
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Tiles
   - Empty_Tiles
+  - Photograph
   layers:
   - Default
   - TransparentFX
@@ -48,4 +49,7 @@ TagManager:
     locked: 0
   - name: Tiles
     uniqueID: 4187270231
+    locked: 0
+  - name: Photograph
+    uniqueID: 1452385207
     locked: 0
