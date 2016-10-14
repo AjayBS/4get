@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Collections;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 
 public class LoadGameObjects : MonoBehaviour {
     //Sprite tile;
@@ -14,9 +15,11 @@ public class LoadGameObjects : MonoBehaviour {
     public Texture2D texture;
 
     public GameObject picture;
+    GameObject family_pic;
     Sprite[] sprites;
     Sprite differentAlphabet;
     Sprite photograph;
+    public Texture btnTexture;
    
     void Start () {
         
@@ -49,7 +52,7 @@ public class LoadGameObjects : MonoBehaviour {
             }
         }
 
-        for (int y = -1; y < 0; y++)
+        for (int y = -2; y < -1; y++)
         {
             for (int x = -2; x < 3; x++)
             {
@@ -59,21 +62,20 @@ public class LoadGameObjects : MonoBehaviour {
             }
         }
 
-        GameObject family_pic=Instantiate(picture, new Vector3(0, 2f, 0), Quaternion.identity) as GameObject;
+        family_pic=Instantiate(picture, new Vector3(0, 2f, 0), Quaternion.identity) as GameObject;
         family_pic.transform.localScale = new Vector3(0.5f,0.4f,0);
-        //GameObject go = new GameObject();
-        //SpriteRenderer renderer = go.AddComponent<SpriteRenderer>();
+       
+    }
 
-        //renderer.sprites[] = Resources.Load("Sprites/Player", typeof(Sprite)) as Sprite;
-
-
-
-        //Sprite[] sprites;
-        //sprites = Resources.LoadAll<Sprite>("Tiles-Sprite");
-        //sprites[0].transform.localScale = new Vector3(2.0f, 2.0f, 2.0f);
-        //SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>(); // we are accessing the SpriteRenderer that is attached to the Gameobject
-        //if (spriteRenderer.sprite == null) // if the sprite on spriteRenderer is null then
-        //    spriteRenderer.sprite = sprites[0];
-        //Debug.Log(sprites.Length);
+    void OnGUI()
+    {
+        if (GUI.Button(new Rect(330, 230, 50, 50), btnTexture,GUIStyle.none))
+        {
+            Debug.Log("Clicked the button with an image");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        //Loads a level
+        //Application.LoadLevel(//The name of the level you want to reload here);
+     
     }
 }
