@@ -37,6 +37,7 @@ public class LoadGameObjects : MonoBehaviour {
         for (int j = 0; j < empty_tiles.Length; j++)
         {
             empty_tiles[j].GetComponent<SpriteRenderer>().sprite = sprites[53];
+            AssignGroupNames(empty_tiles[j]);
         }
     }
 	
@@ -82,31 +83,36 @@ public class LoadGameObjects : MonoBehaviour {
     void LoadEmptyTiles(Vector3 position,string direction)
     {
       int i = 0;
+      int groupNumber = 1;
+      string groupName="GROUP"+ groupNumber;
         if (direction.Equals("Sideways")) { 
       GameObject tempTile;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-      tempTile.name = "EmptyTile" + i;
-      //tempTile.
-      i++;
+            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            //tempTile.
+            i++;
       position.x += 1f;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = "EmptyTile" + i;
-        i++;
+        tempTile.name = groupName + "-" + "EmptyTile" + i;
+            i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = "EmptyTile" + i;
-        i++;
+            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = "EmptyTile" + i;
-        i++;
+            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = "EmptyTile" + i;
-        i++;
-        position.y -= 1f;
+            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            i++;
+
+        groupNumber++;
+            groupName = "GROUP" + groupNumber;
+            position.y -= 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = "EmptyTile" + i;
+            tempTile.name = groupName + "-" + "EmptyTile" + i;
         }
     }
 
@@ -121,5 +127,10 @@ public class LoadGameObjects : MonoBehaviour {
             //Loads a level
             //Application.LoadLevel(//The name of the level you want to reload here);
         }
+    }
+
+    void AssignGroupNames(GameObject empty_tile)
+    {
+       // empty_tile.GetComponent<EmptyTileObjects>().groupName[0] = "Group1";
     }
 }

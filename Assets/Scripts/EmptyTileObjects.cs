@@ -8,6 +8,8 @@ public class EmptyTileObjects : MonoBehaviour {
     public GameObject[] empty_tiles;
     Sprite[] emptyTileSprite;
     public Texture2D texture;
+    //public string[] groupName;
+    //public string previousName
 
 
     // Use this for initialization
@@ -23,22 +25,45 @@ public class EmptyTileObjects : MonoBehaviour {
 
     void OnMouseDown()
     {
-        for(int i=0;i<empty_tiles.Length;i++)
+        for (int i = 0; i < empty_tiles.Length; i++)
         {
-            if(empty_tiles[i].name.Equals(name))
+            if (empty_tiles[i].name.Equals(name))
             {
+               
                 empty_tiles[i].GetComponent<EmptyTileObjects>().selected = true;
                 empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[52];
             }
             else
             {
                 empty_tiles[i].GetComponent<EmptyTileObjects>().selected = false;
-               // empty_tiles[i].GetComponent('').VariableName selected = false;
+                // empty_tiles[i].GetComponent('').VariableName selected = false;
+                //empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[53];
+            }
+        }
+        string groupName = getGroupName(name);
+        for (int i = 0; i < empty_tiles.Length; i++)
+        {
+            if(groupName.Equals(getGroupName(empty_tiles[i].name))&& (!empty_tiles[i].name.Equals(name)))
+            {
+                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[54];
+            }
+            else if((!empty_tiles[i].name.Equals(name)))
+            {
                 empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[53];
             }
         }
-        
-        Debug.Log("This is asa tile click "+ name);
-       // transform.position = position;
+
+            // transform.position = position;
+    }
+
+    public string getGroupName(string s)
+    {
+        int l = s.IndexOf("-");
+        if (l > 0)
+        {
+            return s.Substring(0, l);
+        }
+        return "";
+
     }
 }
