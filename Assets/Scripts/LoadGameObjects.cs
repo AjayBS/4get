@@ -12,11 +12,13 @@ public class LoadGameObjects : MonoBehaviour {
     public GameObject empty_tiles;
     public GameObject alphabet_tiles;
     public GameObject[] tiles;
+    public GameObject[] tiles1;
     public Texture2D texture;
 
     public GameObject picture;
     GameObject family_pic;
     Sprite[] sprites;
+    Sprite[] sprites1;
     Sprite differentAlphabet;
     Sprite photograph;
     public Texture btnTexture;
@@ -27,9 +29,14 @@ public class LoadGameObjects : MonoBehaviour {
     void Start () {
         
         tiles = GameObject.FindGameObjectsWithTag("Tiles");
+        tiles1 = GameObject.FindGameObjectsWithTag("Empty_Tiles");
         for (int j = 0; j < tiles.Length; j++)
         {
             tiles[j].GetComponent<SpriteRenderer>().sprite = sprites[j];
+        }
+        for (int j = 0; j < tiles1.Length; j++)
+        {
+            tiles1[j].GetComponent<SpriteRenderer>().sprite = sprites[53];
         }
     }
 	
@@ -41,6 +48,7 @@ public class LoadGameObjects : MonoBehaviour {
     void Awake()
     {
         sprites = Resources.LoadAll<Sprite>(texture.name);
+        sprites1 = Resources.LoadAll<Sprite>(texture.name);
         photograph = Resources.Load<Sprite>("Family-Pic");
         // differentAlphabet = Resources.Load<Sprite>("Tiles-Sprite_0");
 
