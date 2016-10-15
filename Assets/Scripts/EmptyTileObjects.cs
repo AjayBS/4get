@@ -6,12 +6,12 @@ public class EmptyTileObjects : MonoBehaviour {
     public bool selected = false;
     public bool isEmpty = false;
     public GameObject[] empty_tiles;
-    Sprite[] sprites1;
+    Sprite[] emptyTileSprite;
     public Texture2D texture;
     // Use this for initialization
     void Start () {
         empty_tiles = GameObject.FindGameObjectsWithTag("Empty_Tiles");
-        sprites1 = Resources.LoadAll<Sprite>(texture.name);
+        emptyTileSprite = Resources.LoadAll<Sprite>(texture.name);
     }
 	
 	// Update is called once per frame
@@ -26,13 +26,13 @@ public class EmptyTileObjects : MonoBehaviour {
             if(empty_tiles[i].name.Equals(name))
             {
                 empty_tiles[i].GetComponent<EmptyTileObjects>().selected = true;
-                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = sprites1[52];
+                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[52];
             }
             else
             {
                 empty_tiles[i].GetComponent<EmptyTileObjects>().selected = false;
                // empty_tiles[i].GetComponent('').VariableName selected = false;
-                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = sprites1[53];
+                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[53];
             }
         }
         
