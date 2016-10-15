@@ -7,6 +7,7 @@ TagManager:
   - Tiles
   - Empty_Tiles
   - Photograph
+  - PageLoad
   layers:
   - Default
   - TransparentFX

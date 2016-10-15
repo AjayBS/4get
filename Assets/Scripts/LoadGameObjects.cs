@@ -20,7 +20,10 @@ public class LoadGameObjects : MonoBehaviour {
     Sprite differentAlphabet;
     Sprite photograph;
     public Texture btnTexture;
-   
+    public bool buttonHide=true;
+    public Vector3 picturePosition;
+    public Vector3 pictureScale;
+
     void Start () {
         
         tiles = GameObject.FindGameObjectsWithTag("Tiles");
@@ -61,21 +64,23 @@ public class LoadGameObjects : MonoBehaviour {
                 tempTile.name = "EmptyTile" + x;
             }
         }
-
-        family_pic=Instantiate(picture, new Vector3(0, 2f, 0), Quaternion.identity) as GameObject;
-        family_pic.transform.localScale = new Vector3(0.5f,0.4f,0);
+        picturePosition = new Vector3(0, 2f, 0);
+        family_pic =Instantiate(picture, picturePosition, Quaternion.identity) as GameObject;
+        pictureScale= new Vector3(0.5f, 0.4f, 0);
+        family_pic.transform.localScale = pictureScale;
        
     }
 
     void OnGUI()
     {
+        if(buttonHide) { 
         if (GUI.Button(new Rect(330, 230, 50, 50), btnTexture,GUIStyle.none))
         {
             Debug.Log("Clicked the button with an image");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        //Loads a level
-        //Application.LoadLevel(//The name of the level you want to reload here);
-     
+            //Loads a level
+            //Application.LoadLevel(//The name of the level you want to reload here);
+        }
     }
 }
