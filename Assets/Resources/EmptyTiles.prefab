@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000012083809340}
   - 212: {fileID: 212000012052737714}
   - 114: {fileID: 114000010778059020}
-  - 60: {fileID: 60000011143620608}
+  - 60: {fileID: 60000012311839058}
   m_Layer: 0
   m_Name: EmptyTiles
   m_TagString: Empty_Tiles
@@ -42,7 +42,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!60 &60000011143620608
+--- !u!60 &60000012311839058
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - 4: {fileID: 4000011705656254}
   - 212: {fileID: 212000011788297872}
   - 114: {fileID: 114000012132697626}
-  - 60: {fileID: 60000014219587750}
+  - 60: {fileID: 60000011625904990}
   m_Layer: 0
   m_Name: Tiles
   m_TagString: Tiles
@@ -42,7 +42,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!60 &60000014219587750
+--- !u!60 &60000011625904990
 PolygonCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

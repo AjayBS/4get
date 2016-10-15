@@ -54,7 +54,7 @@ public class LoadGameObjects : MonoBehaviour {
 
 
         LoadAlphabetTiles();
-        Vector3 position = new Vector3(-2.5f,1.1f,0);
+        Vector3 position = new Vector3(-2.5f,0.1f,0);
         string direction = "Sideways";
         LoadEmptyTiles(position, direction);
 
@@ -70,7 +70,6 @@ public class LoadGameObjects : MonoBehaviour {
 
     void LoadAlphabetTiles()
     {
-       
             for (int x = -2; x < 3; x++)
             {
                 GameObject tempTile;
@@ -87,6 +86,7 @@ public class LoadGameObjects : MonoBehaviour {
       GameObject tempTile;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
       tempTile.name = "EmptyTile" + i;
+      //tempTile.
       i++;
       position.x += 1f;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
@@ -104,13 +104,16 @@ public class LoadGameObjects : MonoBehaviour {
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
         tempTile.name = "EmptyTile" + i;
         i++;
+        position.y -= 1f;
+        tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
+        tempTile.name = "EmptyTile" + i;
         }
     }
 
     void OnGUI()
     {
         if(buttonHide) { 
-        if (GUI.Button(new Rect(30, 150, 50, 50), btnTexture,GUIStyle.none))
+        if (GUI.Button(new Rect(30, 140, 50, 50), btnTexture,GUIStyle.none))
         {
             Debug.Log("Clicked the button with an image");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);

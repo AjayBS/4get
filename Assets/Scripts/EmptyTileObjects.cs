@@ -8,6 +8,8 @@ public class EmptyTileObjects : MonoBehaviour {
     public GameObject[] empty_tiles;
     Sprite[] emptyTileSprite;
     public Texture2D texture;
+
+
     // Use this for initialization
     void Start () {
         empty_tiles = GameObject.FindGameObjectsWithTag("Empty_Tiles");

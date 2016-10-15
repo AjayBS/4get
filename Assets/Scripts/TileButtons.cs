@@ -6,10 +6,14 @@ public class TileButtons : MonoBehaviour {
     GameObject[] empty_tile;
     public GameObject[] tiles;
     public bool assigned;
+    Vector3 originalPosition;
+    public 
     // Use this for initialization
     void Start () {
         empty_tile = GameObject.FindGameObjectsWithTag("Empty_Tiles");
         tiles = GameObject.FindGameObjectsWithTag("Tiles");
+        originalPosition = transform.position;
+      
     }
 
     // Update is called once per frame
@@ -48,7 +52,7 @@ public class TileButtons : MonoBehaviour {
                 {
                     if (empty_tile[i].transform.position.x == tiles[j].transform.position.x && empty_tile[i].transform.position.y == tiles[j].transform.position.y)
                     {
-                        ReplaceTiles(tiles[j],empty_tile[i]);
+                        ResetTiles(tiles[j],empty_tile[i]);
                         assigned = true;
                     }
                     }
@@ -70,10 +74,10 @@ public class TileButtons : MonoBehaviour {
         transform.position = empty_tile.transform.position;
     }
 
-    void ReplaceTiles(GameObject tile,GameObject empty_tile)
+    void ResetTiles(GameObject tile,GameObject empty_tile)
     {
-        empty_tile.GetComponent<EmptyTileObjects>().isEmpty = false;
-        tile.transform.position = transform.position;
-        transform.position = empty_tile.transform.position;
+        empty_tile.GetComponent<EmptyTileObjects>().isEmpty = true;
+        tile.transform.position = tile.GetComponent<TileButtons>().originalPosition;
+        //transform.position = empty_tile.transform.position;
     }
 }
