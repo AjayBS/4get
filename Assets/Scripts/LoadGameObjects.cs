@@ -37,7 +37,23 @@ public class LoadGameObjects : MonoBehaviour {
         for (int j = 0; j < empty_tiles.Length; j++)
         {
             empty_tiles[j].GetComponent<SpriteRenderer>().sprite = sprites[53];
-            AssignGroupNames(empty_tiles[j]);
+            //if(j==0)
+            //{
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().previousTileName = null;
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().nextTileName = empty_tiles[j + 1].GetComponent<EmptyTileObjects>().name;
+            //}
+            //else if(j==empty_tiles.Length-1)
+            //{
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().nextTileName = null;
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().previousTileName = empty_tiles[j - 1].GetComponent<EmptyTileObjects>().name;
+            //}
+            //else
+            //{
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().previousTileName = empty_tiles[j - 1].GetComponent<EmptyTileObjects>().name;
+            //    empty_tiles[j].GetComponent<EmptyTileObjects>().nextTileName = empty_tiles[j + 1].GetComponent<EmptyTileObjects>().name;
+            //}
+
+            //AssignGroupNames(empty_tiles[j]);
         }
     }
 	
@@ -88,31 +104,43 @@ public class LoadGameObjects : MonoBehaviour {
         if (direction.Equals("Sideways")) { 
       GameObject tempTile;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-            tempTile.name = groupName + "-" + "EmptyTile" + i;
-            //tempTile.
+            tempTile.name = "EmptyTile" + i;
+           tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber); 
             i++;
       position.x += 1f;
       tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-        tempTile.name = groupName + "-" + "EmptyTile" + i;
+        tempTile.name = "EmptyTile" + i;
+           tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber); 
             i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            tempTile.name = "EmptyTile" + i;
+           tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber); 
             i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            tempTile.name = "EmptyTile" + i;
+           tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber); 
             i++;
         position.x += 1f;
         tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            tempTile.name = "EmptyTile" + i;
+           tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber); 
             i++;
 
         groupNumber++;
             groupName = "GROUP" + groupNumber;
             position.y -= 1f;
-        tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
-            tempTile.name = groupName + "-" + "EmptyTile" + i;
+            tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber);
+            tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
+            tempTile.name = "EmptyTile" + i;
+            tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber);
+            i++;
+
+            position.y -= 1f;
+            tempTile = Instantiate(empty_tiles_prefab, position, Quaternion.identity) as GameObject;
+            tempTile.name = "EmptyTile" + i;
+            tempTile.GetComponent<EmptyTileObjects>().groupNames.Add("Group" + groupNumber);
         }
     }
 

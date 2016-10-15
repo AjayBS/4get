@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class EmptyTileObjects : MonoBehaviour {
 
@@ -9,7 +10,8 @@ public class EmptyTileObjects : MonoBehaviour {
     Sprite[] emptyTileSprite;
     public Texture2D texture;
     //public string[] groupName;
-    //public string previousName
+    public string groupName;
+    public List<string> groupNames;
 
 
     // Use this for initialization
@@ -40,20 +42,33 @@ public class EmptyTileObjects : MonoBehaviour {
                 //empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[53];
             }
         }
-        string groupName = getGroupName(name);
+        //string groupName = getGroupName(name);
         for (int i = 0; i < empty_tiles.Length; i++)
         {
-            if(groupName.Equals(getGroupName(empty_tiles[i].name))&& (!empty_tiles[i].name.Equals(name)))
+            bool isInGroup = false;
+            foreach(var grpName in groupNames)
             {
-                empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[54];
+                if (empty_tiles[i].GetComponent<EmptyTileObjects>().groupNames.Contains(grpName) && (!empty_tiles[i].name.Equals(name)))
+                {
+                    empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[54];
+                    isInGroup = true;
+                }
             }
-            else if((!empty_tiles[i].name.Equals(name)))
+
+            //empty_tiles[i].GetComponent<EmptyTileObjects>().groupNames.;
+            //if (groupName.Equals(empty_tiles[i].GetComponent<EmptyTileObjects>().groupName) && (!empty_tiles[i].name.Equals(name)))
+            //{
+            //    empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[54];
+            //}
+            if ((!empty_tiles[i].name.Equals(name)) && (!isInGroup))
             {
                 empty_tiles[i].GetComponent<SpriteRenderer>().sprite = emptyTileSprite[53];
             }
         }
 
-            // transform.position = position;
+
+
+        // transform.position = position;
     }
 
     public string getGroupName(string s)
